@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "LoginPage.dart";
 
 void main() {
   runApp(start());
@@ -18,7 +19,10 @@ class start extends StatelessWidget {
         ElevatedButton(
             child: Text("Click here ......",
                 style: TextStyle(color: Colors.white)),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => login()));
+            },
             style: ElevatedButton.styleFrom(minimumSize: Size(200.0, 60.0)))
       ])),
     );
