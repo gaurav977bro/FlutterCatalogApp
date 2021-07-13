@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme:
             ThemeData(primarySwatch: Colors.green, brightness: Brightness.dark),
-        initialRoute: "/startPage",
+        initialRoute: "/loginPage",
         routes: {
           "/startPage": (conext) => start(),
           "/loginPage": (conext) => login(),
