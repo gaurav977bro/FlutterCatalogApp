@@ -29,7 +29,7 @@ class _startState extends State<start> {
               height: 90,
               width: buttonChange ? 90 : 250,
               child: Center(
-                child: Text("Lets Go....",
+                child: buttonChange?Icon(Icons.done):Text("Lets Go....",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -40,13 +40,18 @@ class _startState extends State<start> {
                 color: Colors.green,
               ),
             ),
-            onTap: () {
+            onTap: () async {
               setState(() {
                 buttonChange = true;
               });
+              await Future.delayed(Duration(seconds: 1));
 
-              Navigator.push(
+               await Navigator.push(
                   context, MaterialPageRoute(builder: (context) => login()));
+              buttonChange = false;
+              setState(() {
+                
+              });
             })
       ],
     ))
