@@ -6,9 +6,15 @@ void main() {
   runApp(login());
 }
 
-class login extends StatelessWidget {
+class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
 
+  @override
+  _loginState createState() => _loginState();
+}
+
+class _loginState extends State<login> {
+  String _name = "";
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -16,7 +22,7 @@ class login extends StatelessWidget {
             child: Column(children: [
       Image.asset("assets/images/landing.png"),
       SizedBox(height: 30),
-      Text("Login to your account..",
+      Text("Welcome $_name",
           style: TextStyle(
             fontSize: 20,
           )),
@@ -30,7 +36,11 @@ class login extends StatelessWidget {
                   labelText: "email",
                 ),
                 cursorColor: Colors.pink,
-                cursorHeight: 25.0),
+                cursorHeight: 25.0,
+                onChanged: (value) {
+                  _name = value;
+                  setState(() {});
+                }),
             TextFormField(
                 decoration: InputDecoration(
                     hintText: "password", labelText: "Password"),
@@ -40,17 +50,19 @@ class login extends StatelessWidget {
           ])),
       SizedBox(height: 30),
       ElevatedButton(
-        child: Text("login"),
+        child: Text("login", style: TextStyle(fontSize: 20)),
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => home()));
+          
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => home()));
+          
         },
         style: ElevatedButton.styleFrom(
             minimumSize: Size(150, 50), shadowColor: Colors.pink),
       ),
       SizedBox(height: 30),
       ElevatedButton(
-          child: Text("Back"),
+          child: Text("Back", style: TextStyle(fontSize: 20)),
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => start()));
