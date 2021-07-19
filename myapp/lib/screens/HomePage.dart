@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/widgets/Drawer.dart';
+
+
 import "LoginPage.dart";
 
 void main() {
@@ -13,34 +16,24 @@ class home extends StatelessWidget {
     return Scaffold(
         // APP BAR
         appBar: AppBar(
-          title:
-              Text("Catalog app", style: TextStyle(color: Colors.lightGreen)),
-        ),
+            centerTitle: true,
+            title: Text("Catalog App",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ))),
         // HOME PAGE BODY
         body: Container(
-            ),
-        
+            child: Center(
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(minimumSize: Size(150, 50)),
+                    child: Text("Exit"),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => login()));
+                    }))),
+
         // DRAWER
-        drawer: Drawer(
-          child: SingleChildScrollView(
-              child: Column(
-            children: [
-              SizedBox(height: 100),
-              TextButton(
-                  child: ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text("Settings"),
-                    subtitle: Text("system settings"),
-                  ),
-                  onPressed: () {}),
-              ElevatedButton(
-                  child: Text("EXIT"),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => login()));
-                  }),
-            ],
-          )),
-        ));
+        drawer: MyDrawer());
   }
 }
