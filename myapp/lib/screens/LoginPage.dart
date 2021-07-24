@@ -30,7 +30,7 @@ class _loginState extends State<login> {
 
       await Future.delayed(Duration(seconds: 1));
       await Navigator.push(
-          context, MaterialPageRoute(builder: (context) => home()));
+          context, MaterialPageRoute(builder: (context) => Home()));
       setState(() {
         tapped = false;
       });

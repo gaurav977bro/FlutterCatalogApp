@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:myapp/screens/HomePage.dart';
+import 'package:myapp/screens/LoginPage.dart';
 
 void main() {
   runApp(MyDrawer());
@@ -26,7 +28,8 @@ class MyDrawer extends StatelessWidget {
         ListTile(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => home()));
+                  context, MaterialPageRoute(builder: (context) => Home()));
+                  
             },
             leading: Icon(Icons.home, color: Colors.purple),
             title: Text("Home screen"),
@@ -39,10 +42,19 @@ class MyDrawer extends StatelessWidget {
             title: Text("Settings"),
             selectedTileColor: Colors.red,
             horizontalTitleGap: 7,
-            onTap: () {
-              Navigator.pop(context);
-            }),
-      ],
+            onTap: () {}),
+        SizedBox(height: 4),
+        ListTile(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => login()));
+          },
+          leading: Icon(Icons.exit_to_app, color: Colors.purple),
+          title: Text("Logout"),
+          horizontalTitleGap: 10,
+          trailing: Icon(Icons.arrow_forward_ios),
+        )
+      ], 
     ));
   }
 }

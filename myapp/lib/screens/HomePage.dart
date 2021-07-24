@@ -5,11 +5,11 @@ import 'package:myapp/widgets/Drawer.dart';
 import "LoginPage.dart";
 
 void main() {
-  runApp(home());
+  runApp(Home());
 }
 
-class home extends StatelessWidget {
-  const home({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
