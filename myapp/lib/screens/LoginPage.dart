@@ -40,10 +40,12 @@ class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color:Colors.white,
         child: SingleChildScrollView(
             child: Form(
       key: _formKey,
       child: Column(children: [
+        SizedBox(height:50),
         Image.asset("assets/images/landing.png"),
         SizedBox(height: 30),
         Text("Welcome $_name",
@@ -103,7 +105,7 @@ class _loginState extends State<login> {
               height: 48,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.purple,
+                color: Colors.deepPurple,
               ),
             ),
             onTap: () => moveNext(context)),

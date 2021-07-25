@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/Drawer.dart';
 
+import 'package:myapp/widgets/Drawer.dart';
 
 import "LoginPage.dart";
 
@@ -16,12 +16,7 @@ class Home extends StatelessWidget {
     return Scaffold(
         // APP BAR
         appBar: AppBar(
-            centerTitle: true,
-            title: Text("Catalog App",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ))),
+            title: Text("Catalog App",)),
         // HOME PAGE BODY
         body: Container(
             child: Center(

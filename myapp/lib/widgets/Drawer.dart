@@ -11,50 +11,55 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: ListView(
-      children: [
-        DrawerHeader(
-            padding: EdgeInsets.zero,
-            child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.deepPurple,
-                ),
-                accountEmail: Text("martin"),
-                accountName: Text("pappu"),
-                currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/kammo.jpg")))),
-        SizedBox(height: 30),
-        ListTile(
+        child: Container(
+      color: Colors.deepPurple,
+      child: ListView(
+        children: [
+          DrawerHeader(
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.deepPurple,
+                  ),
+                  accountEmail: Text("Kammo@Kumari.com"),
+                  accountName: Text("Kammo"),
+                  currentAccountPicture: CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/kammo.jpg")))),
+          SizedBox(height: 30),
+          ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home()));
+              },
+              leading: Icon(Icons.home, color: Colors.white),
+              title: Text("Home screen", style: TextStyle(color: Colors.white)),
+              subtitle: Text("Refresh", style: TextStyle(color: Colors.white)),
+              horizontalTitleGap: 0,
+              trailing: Icon(Icons.arrow_forward, color: Colors.white)),
+          SizedBox(height: 4),
+          ListTile(
+              trailing: Icon(Icons.arrow_forward, color: Colors.white),
+              leading: Icon(Icons.settings, color: Colors.white),
+              title: Text("Settings", style: TextStyle(color: Colors.white)),
+              subtitle: Text("privacy, help, profile",
+                  style: TextStyle(color: Colors.white)),
+              selectedTileColor: Colors.red,
+              horizontalTitleGap: 0,
+              onTap: () {}),
+          SizedBox(height: 4),
+          ListTile(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
-                  
+                  context, MaterialPageRoute(builder: (context) => login()));
             },
-            leading: Icon(Icons.home, color: Colors.purple),
-            title: Text("Home screen"),
-            horizontalTitleGap: 10,
-            trailing: Icon(Icons.arrow_forward)),
-        SizedBox(height: 4),
-        ListTile(
-            trailing: Icon(Icons.arrow_forward),
-            leading: Icon(Icons.settings, color: Colors.purple),
-            title: Text("Settings"),
-            selectedTileColor: Colors.red,
-            horizontalTitleGap: 7,
-            onTap: () {}),
-        SizedBox(height: 4),
-        ListTile(
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => login()));
-          },
-          leading: Icon(Icons.exit_to_app, color: Colors.purple),
-          title: Text("Logout"),
-          horizontalTitleGap: 10,
-          trailing: Icon(Icons.arrow_forward_ios),
-        )
-      ], 
+            leading: Icon(Icons.running_with_errors, color: Colors.white),
+            title: Text("Logout", style: TextStyle(color: Colors.white)),
+            horizontalTitleGap: 0,
+            trailing: Icon(Icons.arrow_forward, color: Colors.white),
+          )
+        ],
+      ),
     ));
   }
 }
