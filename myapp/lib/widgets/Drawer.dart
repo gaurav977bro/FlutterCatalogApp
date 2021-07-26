@@ -7,7 +7,7 @@ void main() {
   runApp(MyDrawer());
 }
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatelessWidget { 
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -25,6 +25,7 @@ class MyDrawer extends StatelessWidget {
                   accountEmail: Text("Kammo@Kumari.com"),
                   accountName: Text("Kammo"),
                   currentAccountPicture: CircleAvatar(
+                      minRadius: 10.0,
                       backgroundImage: AssetImage("assets/images/kammo.jpg")))),
           SizedBox(height: 30),
           ListTile(
