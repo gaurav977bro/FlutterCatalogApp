@@ -7,7 +7,7 @@ void main() {
   runApp(MyDrawer());
 }
 
-class MyDrawer extends StatelessWidget { 
+class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -52,7 +52,7 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => login()));
+                  context, MaterialPageRoute(builder: (context) => Login()));
             },
             leading: Icon(Icons.running_with_errors, color: Colors.white),
             title: Text("Logout", style: TextStyle(color: Colors.white)),

@@ -3,17 +3,17 @@ import "package:flutter/material.dart";
 import 'HomePage.dart';
 
 void main() {
-  runApp(login());
+  runApp(Login());
 }
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  _loginState createState() => _loginState();
+  _LoginState createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   String _name = "";
   bool tapped = false;
   final _formKey = GlobalKey<FormState>();
