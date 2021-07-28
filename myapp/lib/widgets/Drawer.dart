@@ -8,6 +8,7 @@ void main() {
 }
 
 class MyDrawer extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -22,7 +23,7 @@ class MyDrawer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.deepPurple,
                   ),
-                  accountEmail: Text("Kammo@Kumari.com"),
+                  accountEmail: Text("Martin"),
                   accountName: Text("Kammo"),
                   currentAccountPicture: CircleAvatar(
                       minRadius: 10.0,

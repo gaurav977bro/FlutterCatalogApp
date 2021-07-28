@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/models/catalog.dart';
 
 import 'package:myapp/widgets/Drawer.dart';
+import 'package:myapp/widgets/Item_widgets.dart';
+import 'package:myapp/widgets/Item_widgets.dart';
 
 import "LoginPage.dart";
 
@@ -13,6 +16,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dummylist = List.generate(12, (index) => CatalogModel().items[0]);
+
     return Scaffold(
         // APP BAR
         appBar: AppBar(
@@ -20,7 +25,11 @@ class Home extends StatelessWidget {
           "Catalog App",
         )),
         // HOME PAGE BODY
-        body:Container(),
+        body: ListView.builder(
+            itemCount: dummylist.length,
+            itemBuilder: (context, index) {
+              return ItemWidget(items: dummylist[index]);
+            }),
 
         // DRAWER
         drawer: MyDrawer());

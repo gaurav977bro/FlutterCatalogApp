@@ -1,21 +1,30 @@
-// class Item {
-//   final String id;
-//   final String name;
-//   final String desc;
-//   final num price;
-//   final String color;
-//   final String image;
+class CatalogModel {
+  final items = [
+    Products(
+      name: "Iphone",
+      id: "3343",
+      color: "#73D5BC",
+      image:
+          "https://shop.jtglobal.com/wp-content/uploads/2020/10/iphone-12-red.jpg",
+      desc: "Iphone 12 Max Pro",
+      price: 1299,
+    )
+  ];
+}
 
-//   // Item({this.id, this.name, this.desc, this.price, this.color, this.image});
-// }
+class Products {
+  String name;
+  String id;
+  String color;
+  String image;
+  String desc;
+  num price;
 
-// final product = [
-//   Item(
-//     id: "iphone 12",
-//     name: "IPhone 12 pro max",
-//     desc: "siver grey",
-//     color: " ",
-//     price: 1200,
-//     image: "",
-//   )
-// ];
+  Products(
+      {required this.name,
+      required this.id,
+      required this.color,
+      required this.image,
+      required this.desc,
+      required this.price});
+}
