@@ -11,8 +11,10 @@ class ItemWidget extends StatelessWidget {
     
 
     return Card(
-      margin:EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-      elevation: 20.0,
+      
+      margin:EdgeInsets.symmetric(horizontal:10,vertical: 5),
+      elevation: 10.0,
+      
       shadowColor:Colors.purple,
       color: Colors.white,
       child: ListTile(
