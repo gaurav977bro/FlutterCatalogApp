@@ -1,0 +1,33 @@
+{
+    "products":[
+
+        {
+            "id":342,
+            "name": "IPhone X",
+            "price":1299,
+            "desc": "256gb"
+        },
+        {
+            "id":3452,
+            "name": "Samsung Galaxy s20",
+            "price":1099,
+            "desc": "256gb"
+        },
+
+        {
+            "id":3432,
+            "name": "Nexus 5",
+            "price":1199,
+            "desc": "256gb"
+        },
+
+        {
+            "id":3422,
+            "name": "Google Pixel 4 xl",
+            "price":2299,
+            "desc": "256gb"
+        }
+
+    ]
+    
+}

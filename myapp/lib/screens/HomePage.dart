@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:myapp/models/catalog.dart';
+import "dart:convert";
 
 import 'package:myapp/widgets/Drawer.dart';
 import 'package:myapp/widgets/Item_widgets.dart';
@@ -11,8 +13,27 @@ void main() {
   runApp(Home());
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    var catalogJson =
+        await rootBundle.loadString("assets/products/catalog.json");
+
+    var decodedData = jsonDecode(catalogJson);
+    var productsData = decodedData["products"];
+  }
 
   @override
   Widget build(BuildContext context) {
