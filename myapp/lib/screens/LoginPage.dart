@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        
         child: SingleChildScrollView(
             child: Form(
           key: _formKey,
@@ -107,7 +107,7 @@ class _LoginState extends State<Login> {
                   height: 48,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color: Colors.deepPurple,
+                    color: Colors.pink,
                   ),
                 ),
                 onTap: () => moveNext(context)),

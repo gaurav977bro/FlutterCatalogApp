@@ -5,9 +5,6 @@ import "dart:convert";
 
 import 'package:myapp/widgets/Drawer.dart';
 import 'package:myapp/widgets/Item_widgets.dart';
-import 'package:myapp/widgets/Item_widgets.dart';
-
-import "LoginPage.dart";
 
 void main() {
   runApp(Home());
@@ -28,17 +25,19 @@ class _HomeState extends State<Home> {
   }
 
   loadData() async {
-    var catalogJson =
+    final catalogJson =
         await rootBundle.loadString("assets/products/catalog.json");
+    final decodedData = jsonDecode(catalogJson);
+    var productData = decodedData["products"];
 
-    var decodedData = jsonDecode(catalogJson);
-    var productsData = decodedData["products"];
+    CatalogModel.items = List.from(productData)
+        .map<Products>((products) => Products.fromMap(products))
+        .toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummylist = List.generate(12, (index) => CatalogModel().items[0]);
-
     return Scaffold(
         // APP BAR
         appBar: AppBar(
@@ -47,9 +46,9 @@ class _HomeState extends State<Home> {
         )),
         // HOME PAGE BODY
         body: ListView.builder(
-            itemCount: dummylist.length,
+            itemCount: CatalogModel.items.length,
             itemBuilder: (context, index) {
-              return ItemWidget(items: dummylist[index]);
+              return ItemWidget(items: CatalogModel.items[index]);
             }),
 
         // DRAWER

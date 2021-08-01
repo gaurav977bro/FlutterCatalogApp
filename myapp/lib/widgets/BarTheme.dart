@@ -2,7 +2,8 @@ import "package:flutter/material.dart";
 
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
-      primarySwatch: Colors.deepPurple,
+      primarySwatch: Colors.pink,
+      brightness: Brightness.dark,
       appBarTheme: AppBarTheme(
         iconTheme: IconThemeData(color: Colors.white),
         

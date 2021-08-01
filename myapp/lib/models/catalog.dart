@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
+
 class CatalogModel {
-  final items = [
+  static List<Products> items = [
     Products(
       name: "Iphone",
       id: "3343",
@@ -13,12 +15,12 @@ class CatalogModel {
 }
 
 class Products {
-  String name;
-  String id;
-  String color;
-  String image;
-  String desc;
-  num price;
+  final String name;
+  final String id;
+  final String color;
+  final String image;
+  final String desc;
+  final num price;
 
   Products(
       {required this.name,
@@ -27,4 +29,24 @@ class Products {
       required this.image,
       required this.desc,
       required this.price});
+
+  factory Products.fromMap(Map<String, dynamic> map) {
+    return Products(
+      id:map["id"],
+      name:map["name"],
+      price:map["price"],
+      desc: map["desc"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+
+  toMap() => {
+        "id": id,
+        "color": color,
+        "name": name,
+        "price": price,
+        "desc": desc,
+        "image": image,
+      };
 }
