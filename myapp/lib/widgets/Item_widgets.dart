@@ -18,7 +18,7 @@ class ItemWidget extends StatelessWidget {
       child: ListTile(
           contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           leading: Image.network(items.image,scale:8.0),
-          horizontalTitleGap:60.0,
+         
           title: Text(
             "${items.name}",
             style: TextStyle(

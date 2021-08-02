@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/models/catalog.dart';
 import "dart:convert";
-
 import 'package:myapp/widgets/Drawer.dart';
 import 'package:myapp/widgets/Item_widgets.dart';
+
 
 void main() {
   runApp(Home());
@@ -20,19 +20,24 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
+    
     super.initState();
+
     loadData();
   }
 
   loadData() async {
     final catalogJson =
         await rootBundle.loadString("assets/products/catalog.json");
+
     final decodedData = jsonDecode(catalogJson);
+
     var productData = decodedData["products"];
 
     CatalogModel.items = List.from(productData)
         .map<Products>((products) => Products.fromMap(products))
         .toList();
+
     setState(() {});
   }
 
