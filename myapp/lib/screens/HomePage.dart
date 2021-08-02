@@ -5,7 +5,6 @@ import "dart:convert";
 import 'package:myapp/widgets/Drawer.dart';
 import 'package:myapp/widgets/Item_widgets.dart';
 
-
 void main() {
   runApp(Home());
 }
@@ -20,13 +19,14 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    
     super.initState();
 
     loadData();
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
+
     final catalogJson =
         await rootBundle.loadString("assets/products/catalog.json");
 
@@ -50,11 +50,16 @@ class _HomeState extends State<Home> {
           "Catalog App",
         )),
         // HOME PAGE BODY
-        body: ListView.builder(
-            itemCount: CatalogModel.items.length,
-            itemBuilder: (context, index) {
-              return ItemWidget(items: CatalogModel.items[index]);
-            }),
+        body: Padding(
+          padding:EdgeInsets.symmetric(horizontal: 5, vertical:5 ),
+          child: CatalogModel.items.isNotEmpty? ListView.builder(
+              itemCount: CatalogModel.items.length,
+              itemBuilder: (context, index) {
+                return ItemWidget(items: CatalogModel.items[index]);
+              }
+              ): Center(child: CircularProgressIndicator()),
+        )
+            ,
 
         // DRAWER
         drawer: MyDrawer());

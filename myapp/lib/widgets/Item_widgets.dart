@@ -11,7 +11,7 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      
       elevation: 10.0,
       shadowColor: Colors.purple,
       color: Colors.pink,
