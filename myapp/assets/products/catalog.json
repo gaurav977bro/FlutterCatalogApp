@@ -39,6 +39,56 @@
             "color": "#73D5BC",
             "image":
             "https://cdn.flipshope.com/blog/wp-content/uploads/2019/08/google-pixel-4-xll.jpg"
+        },
+        
+        {
+            "id":3422,
+            "name": "MacBook Air",
+            "price":2299,
+            "desc": "256gb",
+            "color": "#73D5BC",
+            "image":
+            "https://www.notebookcheck.net/fileadmin/_processed_/7/6/csm_EmAdx3pXYAAWy1B_ed17d8000b.jpg"
+        },
+        
+        {
+            "id":3422,
+            "name": "Apple airpods 3",
+            "price":2299,
+            "desc": "256gb",
+            "color": "#73D5BC",
+            "image":
+            "https://store.stormfront.co.uk/content/images/thumbs/0011728_airpods_wireless_charging_case_pdp_us_3jpg.jpeg"
+        },
+        
+        {
+            "id":3422,
+            "name": "Apple Watch",
+            "price":2299,
+            "desc": "256gb",
+            "color": "#73D5BC",
+            "image":
+            "https://www.wired.com/wp-content/uploads/2015/06/apple-watch-ft.jpg"
+        },
+        
+        {
+            "id":3422,
+            "name": "Acer Aspire 7",
+            "price":2299,
+            "desc": "256gb",
+            "color": "#73D5BC",
+            "image":
+            "https://www.notebookcheck.net/fileadmin/_processed_/d/b/csm_Aspire_7_0618_2ef8f3195b.jpg"
+        },
+        
+        {
+            "id":3422,
+            "name": "Asus Tuf gaming laptop",
+            "price":2299,
+            "desc": "256gb",
+            "color": "#73D5BC",
+            "image":
+            "https://www.bhphotovideo.com/images/images2500x2500/asus_fx504ge_bs73_i7_8750h_8gb_1tb_1398212.jpg"
         }
 
     ]
