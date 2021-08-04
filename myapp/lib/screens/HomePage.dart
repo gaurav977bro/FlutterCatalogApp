@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:myapp/models/catalog.dart';
+import 'package:myapp/screens/Products_details.dart';
 import 'package:myapp/widgets/BarTheme.dart';
 import 'package:myapp/widgets/Drawer.dart';
 import 'package:myapp/widgets/Item_widgets.dart';
@@ -51,7 +52,7 @@ class _HomeState extends State<Home> {
       backgroundColor: MyTheme.creamColor,
       appBar: AppBar(
         shape: RoundedRectangleBorder(),
-        title: Text("Products", style: TextStyle(fontSize: 30)),
+        title: Text("Catalog App", style: TextStyle(fontSize: 30)),
       ),
       body: SafeArea(
           child: Container(
@@ -59,7 +60,6 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.all(10),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Header(),
-          SizedBox(height: 30),
           Expanded(
             child: CatalogModel.items.isNotEmpty
                 ? CatalogList()
@@ -79,10 +79,10 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Trendings....",
+        Text("Trendings",
             style: TextStyle(
                 color: MyTheme.bluish,
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold))
       ],
     );
@@ -97,9 +97,19 @@ class CatalogList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       itemBuilder: (context, index) {
+
         final catalogs = CatalogModel.items[index];
-        return CatalogWidget(
-          catalog: catalogs,
+        
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ProductDetails(catalog: catalogs)));
+          },
+          child: CatalogWidget(
+            catalog: catalogs,
+          ),
         );
       },
       itemCount: CatalogModel.items.length,
@@ -130,7 +140,7 @@ class CatalogWidget extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              Column(children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 SizedBox(height: 20),
                 Text(catalog.name,
                     style:
@@ -139,15 +149,17 @@ class CatalogWidget extends StatelessWidget {
                 Text(catalog.desc),
                 SizedBox(height: 20),
                 ButtonBar(children: [
-                  ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(minimumSize: Size(50, 30)),
-                      child: Text("Buy"),
-                      onPressed: () {}),
-                  SizedBox(width: 30),
                   Text("\$${catalog.price}",
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20))
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                  SizedBox(width: 70),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(50, 35),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(49))),
+                      child: Text("Buy"),
+                      onPressed: () {}),
                 ])
               ])
             ],
