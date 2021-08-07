@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: MyTheme.lightTheme(context),
         debugShowCheckedModeBanner: false,
-        initialRoute: "/loginPage",
+        initialRoute: "/homePage",
         routes: {
           "/loginPage": (conext) => Login(),
           "/homePage": (conext) => Home(),
