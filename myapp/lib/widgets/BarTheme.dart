@@ -8,9 +8,15 @@ class MyTheme {
         primarySwatch: Colors.pink,
         // brightness: Brightness.dark,
         appBarTheme: AppBarTheme(
+          
           iconTheme: IconThemeData(
             color: Colors.white,
           ),
         ),
+      );
+
+  static ThemeData darkTheme(BuildContext context) => ThemeData(
+        primarySwatch: Colors.pink,
+        brightness: Brightness.dark,
       );
 }

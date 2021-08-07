@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:myapp/models/catalog.dart';
@@ -6,6 +7,7 @@ import 'dart:convert';
 
 import 'package:myapp/widgets/Drawer.dart';
 
+import 'CartPage.dart';
 import 'ProductScreen.dart';
 
 void main() {
@@ -39,6 +41,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Cart())),
+          child: Icon(CupertinoIcons.cart, color: Colors.white)),
       backgroundColor: MyTheme.creamColor,
       appBar: AppBar(title: Text("My Store")),
       body: SafeArea(
@@ -66,8 +73,15 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Popular...",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold))
+        Container(
+          padding: EdgeInsets.only(left: 15),
+          child: Text("Popular products",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.normal,
+                color: MyTheme.bluish,
+              )),
+        )
       ],
     );
   }
@@ -114,8 +128,11 @@ class CatalogWidget extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   color: MyTheme.creamColor,
-                  child: Image.network(
-                    catalog.image,
+                  child: Hero(
+                    tag: Key(catalog.name),
+                    child: Image.network(
+                      catalog.image,
+                    ),
                   ),
                 ),
               ),

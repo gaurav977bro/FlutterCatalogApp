@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:myapp/screens/CartPage.dart';
 import 'package:myapp/widgets/BarTheme.dart';
 
 import "screens/HomePage.dart";
@@ -16,10 +17,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: MyTheme.lightTheme(context),
         debugShowCheckedModeBanner: false,
-        initialRoute: "/homePage",
+        initialRoute: "/loginPage",
         routes: {
           "/loginPage": (conext) => Login(),
           "/homePage": (conext) => Home(),
+          "/cartPage":(context)=>Cart(),
         });
   }
 }
