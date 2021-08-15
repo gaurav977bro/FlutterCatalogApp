@@ -28,7 +28,7 @@ class MyDrawer extends StatelessWidget {
                       accountName: Text("User - Name"),
                       currentAccountPicture: CircleAvatar(
                           minRadius: 10.0,
-                          backgroundImage: AssetImage("assets/images/kammo.jpg")))),
+                          backgroundImage: AssetImage("assets/images/landing.png")))),
               SizedBox(height: 30),
               ListTile(
                   onTap: () {

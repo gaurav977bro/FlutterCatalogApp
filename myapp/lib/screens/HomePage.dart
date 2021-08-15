@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:myapp/models/AddToCart.dart';
+import 'package:myapp/models/CartModel.dart';
 import 'package:myapp/models/catalog.dart';
 import 'package:myapp/widgets/BarTheme.dart';
 import 'dart:convert';
@@ -79,7 +81,7 @@ class Header extends StatelessWidget {
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.normal,
-                color: MyTheme.bluish,
+                color: Colors.black,
               )),
         )
       ],
@@ -107,10 +109,16 @@ class CatalogList extends StatelessWidget {
   }
 }
 
-class CatalogWidget extends StatelessWidget {
+class CatalogWidget extends StatefulWidget {
   final Products catalog;
 
   const CatalogWidget({Key? key, required this.catalog}) : super(key: key);
+
+  @override
+  _CatalogWidgetState createState() => _CatalogWidgetState();
+}
+
+class _CatalogWidgetState extends State<CatalogWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -128,11 +136,8 @@ class CatalogWidget extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   color: MyTheme.creamColor,
-                  child: Hero(
-                    tag: Key(catalog.name),
-                    child: Image.network(
-                      catalog.image,
-                    ),
+                  child: Image.network(
+                    widget.catalog.image,
                   ),
                 ),
               ),
@@ -145,19 +150,21 @@ class CatalogWidget extends StatelessWidget {
                   ),
                   Container(
                       width: 150,
-                      child: Text(catalog.name,
+                      child: Text(widget.catalog.name,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20))),
                   SizedBox(height: 5),
-                  Text(catalog.desc, style: TextStyle(fontSize: 15)),
+                  Text(widget.catalog.desc, style: TextStyle(fontSize: 15)),
                   SizedBox(height: 20),
                   ButtonBar(
                     children: [
-                      Text("\$${catalog.price}",
+                      Text("\$${widget.catalog.price}",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
                       SizedBox(width: 30),
-                      ElevatedButton(onPressed: () {}, child: Text("Buy"))
+                      Add_To_Cart(
+                        catalog: widget.catalog,
+                      ),
                     ],
                   )
                 ],

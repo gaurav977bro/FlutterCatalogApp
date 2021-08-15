@@ -1,14 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/models/CartModel.dart';
+import 'package:myapp/models/catalog.dart';
+
 import 'package:myapp/widgets/BarTheme.dart';
 
-class Cart extends StatelessWidget {
-  const Cart({Key? key}) : super(key: key);
+import 'ProductScreen.dart';
 
+class Cart extends StatefulWidget {
+  @override
+  _CartState createState() => _CartState();
+}
+
+class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:MyTheme.creamColor,
+        bottomNavigationBar: CartTotal(),
+        backgroundColor: MyTheme.creamColor,
         appBar: AppBar(),
         body: SafeArea(
             child: Column(
@@ -17,7 +26,6 @@ class Cart extends StatelessWidget {
             Divider(
               thickness: 3,
             ),
-            CartTotal(),
           ],
         )));
   }
@@ -31,23 +39,44 @@ class CartList extends StatefulWidget {
 }
 
 class _CartListState extends State<CartList> {
+  static final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Card(
-            margin:EdgeInsets.only(left:10,right:10,bottom:10),
+    return _cart.items.isEmpty
+        ? Center(
+            child: Text(
+            "Add some items !!",
+            style: TextStyle(color: Colors.pink, fontSize: 40),
+          ))
+        : ListView.builder(
+            itemBuilder: (context, index) => Card(
+                child: Card(
+              shadowColor: Colors.pink,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              elevation: 5,
               child: ListTile(
-                contentPadding: EdgeInsets.all(30),
-                  leading: Icon(
-                    Icons.check,
-                    color: Colors.green,
-                  ),
-                  title: Text("item"),
-                  trailing: ElevatedButton(
-                      child: Icon(CupertinoIcons.delete), onPressed: () {})));
-        });
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)),
+                leading: Container(
+                    height: 40,
+                    width: 100,
+                    child: Image.network(_cart.items[index].image)),
+                trailing: TextButton(
+                    child: Icon(Icons.remove, color: Colors.pink),
+                    onPressed: () {
+                      _cart.remove(_cart.items[index]);
+                      
+                      setState(() {});
+                    }),
+                title: Text(_cart.items[index].name),
+                subtitle: Text("\$${_cart.items[index].price}",
+                    style: TextStyle(color: Colors.pink)),
+              ),
+            )),
+            itemCount: _cart.items.length,
+          );
   }
 }
 
@@ -61,17 +90,41 @@ class CartTotal extends StatefulWidget {
 class _CartTotalState extends State<CartTotal> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(50)),
-        elevation: 3,
-        child: ButtonBar(
-          alignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text("\$10,000",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            SizedBox(width: 100),
-            ElevatedButton(child: Text("Buy"), onPressed: () {})
+    final _cart = CartModel();
+    return Container(
+        height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, -13), blurRadius: 40, color: Colors.pink)
           ],
-        ));
+          color: Colors.white,
+        ),
+        child: Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30))),
+            child: ButtonBar(
+              alignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "\$${_cart.totalPrice}",
+                  style: TextStyle(fontSize: 25),
+                ),
+                SizedBox(
+                  width: 35,
+                ),
+                ElevatedButton(
+                    child: Text("Buy"),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content:
+                              Text("Sorry purchase is Available for now !!")));
+                    })
+              ],
+            )));
   }
 }

@@ -2,7 +2,7 @@
     "products":[
 
         {
-            "id":342,
+            "id":1,
             "name": "IPhone X",
             "price":1299,
             "desc": "256gb",
@@ -11,7 +11,7 @@
             "https://d16lwq5o0fvd7.cloudfront.net/images/catalogue/products/mwc22ba/mwc22ba.jpg"
         },
         {
-            "id":344,
+            "id":2,
             "name": "Samsung Galaxy s20",
             "price":1099,
             "desc": "256gb",
@@ -21,7 +21,7 @@
         },
 
         {
-            "id":345,
+            "id":3,
             "name": "Nexus 5",
             "price":1199,
             "desc": "256gb",
@@ -32,7 +32,7 @@
         },
 
         {
-            "id":346,
+            "id":4,
             "name": "Google Pixel 4 xl",
             "price":2299,
             "desc": "256gb",
@@ -42,7 +42,7 @@
         },
         
         {
-            "id":347,
+            "id":5,
             "name": "MacBook Air",
             "price":2299,
             "desc": "256gb",
@@ -52,7 +52,7 @@
         },
         
         {
-            "id":348,
+            "id":6,
             "name": "Apple airpods 3",
             "price":2299,
             "desc": "256gb",
@@ -62,7 +62,7 @@
         },
         
         {
-            "id":349,
+            "id":7,
             "name": "Apple Watch",
             "price":2299,
             "desc": "256gb",
@@ -72,7 +72,7 @@
         },
         
         {
-            "id":349,
+            "id":8,
             "name": "Acer Aspire 7",
             "price":2299,
             "desc": "256gb",
@@ -82,7 +82,7 @@
         },
         
         {
-            "id":341,
+            "id":9,
             "name": "Asus Tuf gaming laptop",
             "price":2299,
             "desc": "256gb",

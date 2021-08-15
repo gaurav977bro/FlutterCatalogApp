@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:myapp/models/catalog.dart';
-import 'package:myapp/screens/HomePage.dart';
-import 'package:myapp/widgets/BarTheme.dart';
+
 
 class ItemWidget extends StatelessWidget {
   final Products items;
