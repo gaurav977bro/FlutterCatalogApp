@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 import 'HomePage.dart';
 
 void main() {
@@ -41,11 +40,7 @@ class LoginContents extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
         margin: EdgeInsets.symmetric(horizontal: 30, vertical: 60),
         color: Colors.white,
-        
-        
-        
         child: Container(
-          
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
             height: 600,
             child: Column(children: [
@@ -93,7 +88,8 @@ class _TextField1State extends State<TextField> {
               focusNode: FocusNode(canRequestFocus: true),
               decoration: InputDecoration(
                   filled: true,
-                  border: OutlineInputBorder(borderSide: BorderSide()),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),),
                   prefixIcon: Icon(Icons.mail, color: Colors.pink),
                   labelText: "Email",
                   hintText: "Enter your email",
@@ -112,14 +108,18 @@ class _TextField1State extends State<TextField> {
                   counter: GestureDetector(
                       child: Text("Forgot Password?",
                           style: TextStyle(color: Colors.blue)),
-                      onTap: () {}),
+                      onTap: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("I dont Know either")));
+                      }),
                   filled: true,
                   labelText: "Password",
                   labelStyle: TextStyle(color: Colors.black),
                   hintText: "Enter password",
                   hintStyle: TextStyle(color: Colors.black),
                   border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.red)),
+                      borderRadius: BorderRadius.circular(20),
+                     ),
                   prefixIcon: Icon(Icons.lock, color: Colors.pink),
                   suffix: GestureDetector(
                     onTap: () {

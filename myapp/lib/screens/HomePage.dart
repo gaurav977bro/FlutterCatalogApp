@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: Colors.green,
           onPressed: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => Cart())),
           child: Icon(CupertinoIcons.cart, color: Colors.white)),

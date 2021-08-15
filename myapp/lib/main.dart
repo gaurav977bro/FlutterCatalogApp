@@ -1,7 +1,6 @@
-
-
 import "package:flutter/material.dart";
 import 'package:myapp/screens/CartPage.dart';
+import 'package:myapp/screens/SettingPage.dart';
 import 'package:myapp/widgets/BarTheme.dart';
 
 import "screens/HomePage.dart";
@@ -23,8 +22,8 @@ class MyApp extends StatelessWidget {
         routes: {
           "/loginPage": (conext) => Login(),
           "/homePage": (conext) => Home(),
-          "/cartPage":(context)=>Cart(),
+          "/cartPage": (context) => Cart(),
+          "/setting": (context) => Setting(),
         });
   }
 }
- 
